@@ -1,15 +1,21 @@
-import React from 'react';
-import './App.css';
-import FlightBookingForm from './FlightBookingForm';
-import TrainBookingForm from './TrainBookingForm';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+import Home from "./pages/home/Home";
+import Hotel from "./pages/hotel/Hotel";
+import List from "./pages/list/List";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hi! Welcome to Travel Booking App</h1>
-      <TrainBookingForm />
-      <FlightBookingForm />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/hotels" element={<List/>}/>
+        <Route path="/hotels/:id" element={<Hotel/>}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
